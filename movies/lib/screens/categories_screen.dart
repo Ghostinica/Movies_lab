@@ -315,7 +315,7 @@ class _CategorySection extends StatelessWidget {
                 ),
               ),
             )
-          else
+                    else
             ...movies.map(
               (item) => ListTile(
                 dense: true,
@@ -334,8 +334,16 @@ class _CategorySection extends StatelessWidget {
                         ),
                       )
                     : const Icon(Icons.movie_outlined, size: 20),
-                title: Text(item.title),
-                subtitle: Text('${item.year} · ${item.genre}'),
+                title: Text(
+                  item.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                subtitle: Text(
+                  '${item.year} · ${item.genre}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 trailing: IconButton(
                   icon: const Icon(Icons.remove_circle_outline),
                   tooltip: 'Удалить из категории',
@@ -345,6 +353,7 @@ class _CategorySection extends StatelessWidget {
               ),
             ),
         ],
+
       ),
     );
   }

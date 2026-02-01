@@ -453,7 +453,11 @@ class _MovieListTile extends StatelessWidget {
               ),
             )
           : _placeholderIcon(context),
-      title: Text(item.title),
+      title: Text(
+        item.title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
       subtitle: _buildSubtitle(item),
       trailing: const Icon(Icons.chevron_right),
       onTap: onTap,
@@ -466,7 +470,11 @@ class _MovieListTile extends StatelessWidget {
     if (item.ratingKp != null && item.ratingKp! > 0) parts.add('КП ${item.ratingKp!.toStringAsFixed(1)}');
     if (item.ratingImdb != null && item.ratingImdb! > 0) parts.add('IMDB ${item.ratingImdb!.toStringAsFixed(1)}');
     if (item.movieLengthMinutes != null && item.movieLengthMinutes! > 0) parts.add('${item.movieLengthMinutes} мин');
-    return Text(parts.join(' · '));
+    return Text(
+      parts.join(' · '),
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+    );
   }
 
   Widget _placeholderIcon(BuildContext context) {
@@ -479,3 +487,4 @@ class _MovieListTile extends StatelessWidget {
     );
   }
 }
+

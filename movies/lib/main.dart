@@ -45,8 +45,9 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return AppStateScope(
       state: widget.appState,
-      child: MaterialApp(
+        child: MaterialApp(
         title: 'Фильмы',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: const Color(0xFF6366F1),
@@ -87,6 +88,7 @@ class _MainAppState extends State<MainApp> {
         ),
         home: HomeScreen(),
       ),
+
     );
   }
 }
